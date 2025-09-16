@@ -236,13 +236,13 @@ NEXT_PUBLIC_ENABLE_REGISTER=true
 ```bash
 # 安装Wrangler CLI
 npm install -g wrangler
-wrangler auth login
+wrangler login
 
 # 创建数据库
 wrangler d1 create katelyatv-db
 # ⚠️ 重要：确保在项目根目录下运行此命令
 # 如果遇到文件路径错误，请参考 D1_MIGRATION.md 排查指南
-wrangler d1 execute katelyatv-db --file=./scripts/d1-init.sql
+ wrangler d1 execute katelyatv-db --file=./scripts/d1-init.sql --env production
 ```
 
 5. **配置数据库绑定** → 在 `wrangler.toml` 中添加数据库 ID
@@ -374,7 +374,7 @@ curl -H "Authorization: Bearer $UPSTASH_TOKEN" \
 2. **初始化数据库表**：
 
    ```bash
-   wrangler d1 execute katelyatv-db --file=./scripts/d1-init.sql
+   wrangler d1 execute katelyatv-db --file=./scripts/d1-init.sql --env production
    ```
 
 3. **配置环境变量**：
