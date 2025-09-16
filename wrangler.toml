@@ -42,12 +42,9 @@ NODE_ENV = "production"
 [[env.production.d1_databases]]
 binding = "DB"
 database_name = "katelyatv-db"
-database_id = "your-d1-database-id-here"
+database_id = "310c08b9-9820-4d49-ab75-09697c77a415"
 
 [build]
 command = "pnpm pages:build"
-environment = { NODE_VERSION = "18" }
-
-[[build.environment_variables]]
-name = "NPM_FLAGS"
-value = "--prefix=/opt/buildhome/.asdf/installs/nodejs/18.17.1/.npm"
+# wrangler v4 不再支持 build.environment 和 build.environment_variables
+# 如果需要设置 Node 版本或其他环境变量，请使用 env.production.vars 或 Pages 项目设置
